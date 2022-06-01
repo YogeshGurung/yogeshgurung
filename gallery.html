@@ -1,0 +1,165 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gallery</title>
+    <link rel="stylesheet" href="assets/styles/app.css">
+</head>
+
+<body class="gallery--contact">
+    <div class="fullscreen-image">
+      <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1955&amp;q=80" alt="mountain">
+    </div>
+    <main id="app">
+        <section class="content content--open content--bg-blue">
+            <header>
+                <nav class="site-navigation">
+                    <div class="nav-left">
+                        <a href="index.html" class="link">Home</a>
+                    </div>
+
+                    <div class="nav-right">
+                        <a href="about.html" class="link">About</a>
+                        <a href="communityservice.html" class="link">Community Service</a>
+                        <a href="experience.html" class="link">Experience</a>
+                        <a href="adventure.html" class="link">Adventure</a>
+                        <a href="gallery.html" class="link link--active">Gallery</a>
+                        <a href="multimedia.html" class="link">Multimedia</a>
+                        <a href="contact.html" class="link ">Contact</a>
+                    </div>
+                </nav>
+            </header>
+
+            <section class="gallery">
+              <h3 class="heading">Gallery</h3>
+
+              <div class="images" style="margin-top: 1rem;">
+                <div class="image">
+                    <img src="/assets/gallery/e1.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/Yog_Dhaka topi.jpeg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/e10.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/Yogi_opera.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/yogesh.jpeg"
+                        alt="mountain">
+                </div>
+                <div class="image">
+                    <img src="/assets/gallery/a10.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/a13.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/Amadablam_camp1.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/Yogesh_rockclimbing.jpeg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/e7.jpg"
+                        alt="mountain">
+                </div>
+                <div class="image">
+                    <img src="/assets/gallery/e5.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/e6.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/Yogi_slim.jpg">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/e14.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/g1.jpg"
+                        alt="mountain">
+                </div>
+                <div class="image">
+                    <img src="/assets/gallery/g2.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/g3.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/Holy_Basantapur.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/g9.jpg"
+                        alt="mountain">
+                </div>
+
+                <div class="image">
+                    <img src="/assets/gallery/g7.jpg"
+                        alt="mountain">
+                </div>
+            </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+      $(".image img").on("click", function() {
+        $(".fullscreen-image")
+          .html(`<img src="${this.src}" />`)
+          .css({ display: "flex" });
+
+        setTimeout(() => {
+          $(".fullscreen-image").css({ opacity: 1 });
+        }, 0);
+
+      });
+
+      $(".fullscreen-image")
+        .on("click", function({ originalEvent: { target } }) {
+          target === this && $(".fullscreen-image").css({ opacity: 0 });
+        })
+        .on("transitionend", function() {
+          if($(this).css("opacity") === "0") {
+            $(".fullscreen-image").css({ display: "none" });
+          } else {
+            $(".fullscreen-image").css({ display: "flex" });
+          }
+        });
+    </script>
+</body>
+
+</html>

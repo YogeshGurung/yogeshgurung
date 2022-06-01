@@ -1,0 +1,94 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multimedia</title>
+    <link rel="stylesheet" href="assets/styles/app.css">
+</head>
+
+<body class="gallery--adventure">
+    <div class="fullscreen-image">
+      <img src="https://images.unsplash.com/photo-1454496522488-7a8e488e8606?ixlib=rb-1.2.1&amp;ixid=eyJhcHBfaWQiOjEyMDd9&amp;auto=format&amp;fit=crop&amp;w=1955&amp;q=80" alt="mountain">
+    </div>
+    <main id="app">
+        <section class="content content--open content--bg-blue">
+            <header>
+                <nav class="site-navigation">
+                    <div class="nav-left">
+                        <a href="index.html" class="link">Home</a>
+                    </div>
+
+                    <div class="nav-right">
+                        <a href="about.html" class="link">About</a>
+                        <a href="communityservice.html" class="link">Community Service</a>
+                        <a href="experience.html" class="link">Experience</a>
+                        <a href="adventure.html" class="link">Adventure</a>
+                        <a href="gallery.html" class="link">Gallery</a>
+                        <a href="multimedia.html" class="link link --active">Multimedia</a>
+                        <a href="contact.html" class="link">Contact</a>
+                    </div>
+                </nav>
+            </header>
+
+            <section class="adventure">
+              <h3 class="heading">Multimedia</h3>
+
+              <div class="videos">
+                <div class="video">
+                  <iframe class="video__player" src="https://www.youtube.com/embed/TbZ4xSb_puI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <p class="video__description">"A Cup of Love" supporting socially disadvantaged people in street of Kathmandu</p>
+                </div>
+
+                <div class="video">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/A4owAWem1ok" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <p class="video__description"> Amadablam expedition in 2016</p>
+                </div>
+
+                <div class="video">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/BAfs1qEKVqQ" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <p class="video__description">Rock Bouldering trip in Seti Devi</p>
+                </div>
+
+                <div class="video">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/8qUF-0GQoEI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <p class="video__description">Rock Climbing Training</p>
+                </div>
+
+                <div class="video">
+                  <iframe width="560" height="315" src="https://www.youtube.com/embed/v46GfsayvUI" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                  <p class="video__description">Flaring bottle</p>
+                </div>
+              </div>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+      $(".image img").on("click", function() {
+        $(".fullscreen-image")
+          .html(`<img src="${this.src}" />`)
+          .css({ display: "flex" });
+
+        setTimeout(() => {
+          $(".fullscreen-image").css({ opacity: 1 });
+        }, 0);
+
+      });
+
+      $(".fullscreen-image")
+        .on("click", function({ originalEvent: { target } }) {
+          target === this && $(".fullscreen-image").css({ opacity: 0 });
+        })
+        .on("transitionend", function() {
+          if($(this).css("opacity") === "0") {
+            $(".fullscreen-image").css({ display: "none" });
+          } else {
+            $(".fullscreen-image").css({ display: "flex" });
+          }
+        });
+    </script>
+</body>
+
+</html>

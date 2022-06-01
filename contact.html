@@ -1,0 +1,100 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact</title>
+    <link rel="stylesheet" href="assets/styles/app.css">
+</head>
+
+<body class="page--contact">
+    <main id="app">
+        <section class="content content--open content--bg-blue">
+            <header>
+                <nav class="site-navigation">
+                    <div class="nav-left">
+                        <a href="index.html" class="link">Home</a>
+                    </div>
+
+                    <div class="nav-right">
+                        <a href="about.html" class="link">About</a>
+                        <a href="communityservice.html" class="link">Community Service</a>
+                        <a href="experience.html" class="link">Experience</a>
+                        <a href="adventure.html" class="link">Adventure</a>
+                        <a href="gallery.html" class="link">Gallery</a>
+                        <a href="contact.html" class="link link--active">Contact</a>
+                    </div>
+
+                </nav>
+            </header>
+
+            <section class="contact">
+
+                <form action="" method="get" class="contact__form" autocomplete="off">
+                    <ul class="errors"></ul>
+                    <div class="group group--horizontal">
+                        <div class="control">
+                            <label for="first_name" class="control__label">First Name</label>
+                            <input type="text" id="first_name" class="control__input" name="first_name">
+                        </div>
+                        <div class="control">
+                            <label for="first_name" class="control__label">Last Name</label>
+                            <input type="text" id="last_name" class="control__input" name="last_name">
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <div class="control">
+                            <label for="email" class="control__label">Email</label>
+                            <input type="email" id="email" class="control__input" name="email">
+                        </div>
+                    </div>
+
+                    <div class="group">
+                        <div class="control">
+                            <label for="subject" class="control__label">Subject</label>
+                            <input type="text" id="subject" class="control__input" name="subject">
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="control">
+                            <label for="message" class="control__label">Message</label>
+                            <textarea name="message" id="message" cols="30" rows="7" class="control__input"></textarea>
+                        </div>
+                    </div>
+                    <div class="group">
+                        <div class="control">
+                            <button class="control__button" type="submit">Send</button>
+                        </div>
+                    </div>
+                </form>
+            </section>
+        </section>
+    </main>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
+    <script>
+        const errorBag = $(".errors");
+
+        const inputs = [$("#first_name"), $("#last_name"), $("#email"), $("#subject"), $("#message")];
+
+        $("form.contact__form").on("submit", function(e) {
+            errorBag.empty().removeClass("errors--show");
+            $(".control--error").removeClass("control--error");
+
+            for(let i = 0; i < inputs.length; i++) {
+                const input = inputs[i];
+                const fieldName = input.prev().text();
+
+                if(!input.val().trim()) {
+                    e.preventDefault();
+                    errorBag.append(`<li>${fieldName} field is required.</li>`);
+                    errorBag.addClass("errors--show");
+                    input.closest(".control").addClass("control--error");
+                }
+            }
+        });
+    </script>
+</body>
+
+</html>
